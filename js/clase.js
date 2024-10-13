@@ -64,8 +64,14 @@ function generarAlumno(){
     const carta = document.createElement("div");
     carta.classList.add("carta");
     carta.innerHTML = `
-        ${alumnoAleatorio.nombre}
+    <h2>${alumnoAleatorio.nombre}</h2>
+    <button>borrar</button>
     `;
+
+    carta.querySelector('button').addEventListener('click', () => {
+        carta.remove();
+        alumnosGenerados.delete(alumnoAleatorio);
+    })
 
     // seleccionamos el div con la clase "cartas" y le añadimos el div "carta".
     document.querySelector(".cartas").appendChild(carta);
